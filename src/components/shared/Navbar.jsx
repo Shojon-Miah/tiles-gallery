@@ -1,12 +1,8 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-// ─── TODO: better-auth setup হলে এই দুটো line uncomment করো ───
-// import { useSession } from "@/lib/auth-client";
-// const { data: session } = useSession();
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -18,13 +14,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ─── Placeholder: better-auth connect হলে replace করো ───
+  // ─── Placeholder
   const session = null; // null = logged out, object = logged in
   const user = session?.user ?? null;
 
   const handleLogout = async () => {
-    // TODO: better-auth setup হলে implement করো
-    // await authClient.signOut();
     console.log("Logout clicked");
   };
 
@@ -38,7 +32,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 text-stone-800 hover:text-stone-600 transition-colors"
           >
-            {/* Tile icon */}
+            {/* Tiles icon */}
             <span className="flex gap-0.5">
               <span className="flex flex-col gap-0.5">
                 <span className="w-3 h-3 bg-stone-700 rounded-sm"></span>
@@ -180,4 +174,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
 

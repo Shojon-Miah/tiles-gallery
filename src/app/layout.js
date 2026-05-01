@@ -1,4 +1,5 @@
 import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 import "../styles/globals.css";
 export const metadata = {
   title: "Tiles Gallery",
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
 }
+

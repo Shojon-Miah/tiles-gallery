@@ -30,7 +30,7 @@ export default function Navbar() {
           {/* ── Left: Logo ── */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-stone-800 hover:text-stone-600 transition-colors"
+            className="flex items-center gap-3 text-stone-800 hover:text-stone-600 transition-colors"
           >
             {/* Tiles icon */}
             <span className="flex gap-0.5">
@@ -92,7 +92,7 @@ export default function Navbar() {
               /* Logged Out */
               <Link
                 href="/login"
-                className="text-sm font-medium text-white bg-stone-800 px-5 py-2 rounded hover:bg-stone-700 transition-colors"
+                className="text-sm font-medium text-white bg-stone-800 px-6 py-2.5 rounded hover:bg-stone-700 transition-colors"
               >
                 Login
               </Link>

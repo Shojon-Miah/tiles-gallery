@@ -6,7 +6,7 @@ export default async function FeaturedTiles() {
   const featuredTiles = await getFeaturedTiles();
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto">
 
         {/* Section Header */}

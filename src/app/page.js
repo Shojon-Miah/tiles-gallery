@@ -1,9 +1,13 @@
+import Banner from "@/components/home/Banner";
+import MarqueeText from "@/components/home/MarqueeText";
+import FeaturedTiles from "@/components/home/FeaturedTiles";
+
 export default function HomePage() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-3xl font-bold text-blue-600">
-        Tiles Gallery
-      </h1>
-    </div>
+    <main>
+      <Banner />
+      <MarqueeText />
+      <FeaturedTiles />
+    </main>
   );
 }

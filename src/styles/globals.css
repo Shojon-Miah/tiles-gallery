@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
+@theme {
+  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-playfair: var(--font-playfair), Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  color: #292524;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,13 +1,13 @@
 const JSON_SERVER_URL = "http://localhost:5000";
 
-// সব tiles fetch করে
+// Fetch all tiles
 export async function getAllTiles() {
   const res = await fetch(`${JSON_SERVER_URL}/tiles`);
   if (!res.ok) throw new Error("Failed to fetch tiles");
   return res.json();
 }
 
-// শুধু top 4 tiles fetch করে (Featured section এর জন্য)
+// Fetch only top 4 tiles (for Featured section)
 export async function getFeaturedTiles() {
   const res = await fetch(`${JSON_SERVER_URL}/tiles?_page=1&_per_page=4`);
   if (!res.ok) throw new Error("Failed to fetch featured tiles");
@@ -15,7 +15,7 @@ export async function getFeaturedTiles() {
   return result.data || result;
 }
 
-// id দিয়ে একটা tile fetch করে (Details page এর জন্য)
+// Fetch a single tile by id (for Details page)
 export async function getTileById(id) {
   const res = await fetch(`${JSON_SERVER_URL}/tiles/${id}`);
   if (!res.ok) throw new Error("Failed to fetch tile");

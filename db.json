@@ -1,0 +1,109 @@
+{
+  "tiles": [
+    {
+      "id": "tile_001",
+      "title": "Ceramic Blue Tile",
+      "description": "Premium ceramic tile with a stunning blue glaze finish, perfect for bathroom and kitchen walls.",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
+      "category": "ceramic",
+      "price": 45.99,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Ceramic",
+      "tags": ["Blue", "Minimalist", "Bathroom"],
+      "inStock": true
+    },
+    {
+      "id": "tile_002",
+      "title": "Marble Effect Porcelain",
+      "description": "Luxurious marble-effect porcelain tile with natural veining patterns for an elegant look.",
+      "image": "https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=600",
+      "category": "porcelain",
+      "price": 89.99,
+      "currency": "USD",
+      "dimensions": "80x80 cm",
+      "material": "Porcelain",
+      "tags": ["Marble", "Luxury", "Living Room"],
+      "inStock": true
+    },
+    {
+      "id": "tile_003",
+      "title": "Terracotta Floor Tile",
+      "description": "Warm terracotta floor tile inspired by Mediterranean design, ideal for kitchens and patios.",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+      "category": "terracotta",
+      "price": 34.99,
+      "currency": "USD",
+      "dimensions": "30x30 cm",
+      "material": "Terracotta",
+      "tags": ["Terracotta", "Mediterranean", "Kitchen"],
+      "inStock": true
+    },
+    {
+      "id": "tile_004",
+      "title": "Geometric Mosaic Tile",
+      "description": "Eye-catching geometric mosaic tile with black and white pattern for modern interiors.",
+      "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600",
+      "category": "mosaic",
+      "price": 59.99,
+      "currency": "USD",
+      "dimensions": "30x30 cm",
+      "material": "Glass",
+      "tags": ["Geometric", "Modern", "Monochrome"],
+      "inStock": false
+    },
+    {
+      "id": "tile_005",
+      "title": "Slate Grey Stone Tile",
+      "description": "Natural slate-look stone tile with textured surface, great for outdoor and indoor flooring.",
+      "image": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=600",
+      "category": "stone",
+      "price": 72.50,
+      "currency": "USD",
+      "dimensions": "60x40 cm",
+      "material": "Stone",
+      "tags": ["Grey", "Natural", "Outdoor"],
+      "inStock": true
+    },
+    {
+      "id": "tile_006",
+      "title": "Victorian Patterned Tile",
+      "description": "Classic Victorian-era patterned tile with intricate floral motifs in deep navy.",
+      "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600",
+      "category": "victorian",
+      "price": 55.00,
+      "currency": "USD",
+      "dimensions": "20x20 cm",
+      "material": "Ceramic",
+      "tags": ["Victorian", "Patterned", "Navy"],
+      "inStock": true
+    },
+    {
+      "id": "tile_007",
+      "title": "White Subway Tile",
+      "description": "Classic white subway tile for timeless kitchen backsplashes and bathroom walls.",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600",
+      "category": "ceramic",
+      "price": 28.99,
+      "currency": "USD",
+      "dimensions": "10x30 cm",
+      "material": "Ceramic",
+      "tags": ["White", "Classic", "Kitchen"],
+      "inStock": true
+    },
+    {
+      "id": "tile_008",
+      "title": "Wood Effect Plank Tile",
+      "description": "Realistic wood-effect porcelain plank tile combining natural warmth with tile durability.",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600",
+      "category": "porcelain",
+      "price": 67.00,
+      "currency": "USD",
+      "dimensions": "20x120 cm",
+      "material": "Porcelain",
+      "tags": ["Wood", "Warm", "Living Room"],
+      "inStock": true
+    }
+  ]
+}
+

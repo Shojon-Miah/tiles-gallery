@@ -1,46 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getFeaturedTiles } from "@/lib/jsonServer";
 
-const featuredTiles = [
-  {
-    id: "tile_001",
-    title: "Ceramic White Matte",
-    category: "Ceramic",
-    price: 32.99,
-    image: "/images/tile-ceramic.png",
-    dimensions: "60×60 cm",
-    tag: "Best Seller",
-  },
-  {
-    id: "tile_002",
-    title: "Marble Grey Gloss",
-    category: "Porcelain",
-    price: 58.5,
-    image: "/images/tile-marble.png",
-    dimensions: "80×80 cm",
-    tag: "New Arrival",
-  },
-  {
-    id: "tile_003",
-    title: "Terracotta Mosaic",
-    category: "Mosaic",
-    price: 45.0,
-    image: "/images/tile-terracotta.png",
-    dimensions: "30×30 cm",
-    tag: "Trending",
-  },
-  {
-    id: "tile_004",
-    title: "Geometric Blue Deco",
-    category: "Ceramic",
-    price: 42.99,
-    image: "/images/tile-geometric.png",
-    dimensions: "20×20 cm",
-    tag: "Featured",
-  },
-];
+export default async function FeaturedTiles() {
+  const featuredTiles = await getFeaturedTiles();
 
-export default function FeaturedTiles() {
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -77,13 +41,15 @@ export default function FeaturedTiles() {
                   src={tile.image}
                   alt={tile.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-108"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                {/* Tag Badge */}
-                <span className="absolute top-3 left-3 bg-white text-stone-700 text-[10px] uppercase tracking-widest px-2 py-1 font-semibold shadow-sm">
-                  {tile.tag}
-                </span>
+                {/* First Tag Badge */}
+                {tile.tags?.[0] && (
+                  <span className="absolute top-3 left-3 bg-white text-stone-700 text-[10px] uppercase tracking-widest px-2 py-1 font-semibold shadow-sm">
+                    {tile.tags[0]}
+                  </span>
+                )}
               </div>
 
               {/* Card Info */}
@@ -127,3 +93,4 @@ export default function FeaturedTiles() {
     </section>
   );
 }
+

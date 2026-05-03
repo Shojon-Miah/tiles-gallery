@@ -12,6 +12,8 @@
   "dependencies": {
     "@heroui/react": "^3.0.3",
     "@heroui/styles": "^3.0.3",
+    "better-auth": "^1.6.9",
+    "mongodb": "^7.2.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

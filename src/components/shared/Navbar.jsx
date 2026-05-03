@@ -1,21 +1,19 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "All Tiles", href: "/all-tiles" },
-  { label: "My Profile", href: "/my-profile" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ─── Placeholder
-  const session = null; // null = logged out, object = logged in
+  const session = null;
   const user = session?.user ?? null;
 
   const handleLogout = async () => {
@@ -30,9 +28,8 @@ export default function Navbar() {
           {/* ── Left: Logo ── */}
           <Link
             href="/"
-            className="flex items-center gap-3 text-stone-800 hover:text-stone-600 transition-colors"
+            className="flex items-center gap-2 text-stone-800 hover:text-stone-600 transition-colors"
           >
-            {/* Tiles icon */}
             <span className="flex gap-0.5">
               <span className="flex flex-col gap-0.5">
                 <span className="w-3 h-3 bg-stone-700 rounded-sm"></span>
@@ -73,7 +70,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             {user ? (
               <>
-                {/* Logged In */}
                 <Link href="/my-profile">
                   <img
                     src={user.image ?? "/default-avatar.png"}
@@ -89,10 +85,9 @@ export default function Navbar() {
                 </button>
               </>
             ) : (
-              /* Logged Out */
               <Link
                 href="/login"
-                className="text-sm font-medium text-white bg-stone-800 px-6 py-2.5 rounded hover:bg-stone-700 transition-colors"
+                className="text-sm font-medium text-white bg-stone-800 px-5 py-2 rounded hover:bg-stone-700 transition-colors"
               >
                 Login
               </Link>
@@ -141,6 +136,23 @@ export default function Navbar() {
                 </li>
               );
             })}
+
+            {/* My Profile — শুধু logged in অবস্থায় দেখাবে */}
+            {user && (
+              <li>
+                <Link
+                  href="/my-profile"
+                  onClick={() => setMenuOpen(false)}
+                  className={`block px-3 py-2 rounded text-sm font-medium transition-colors
+                    ${pathname === "/my-profile"
+                      ? "bg-stone-100 text-stone-900"
+                      : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+                    }`}
+                >
+                  My Profile
+                </Link>
+              </li>
+            )}
           </ul>
 
           <div className="mt-3 pt-3 border-t border-stone-100">
@@ -174,5 +186,4 @@ export default function Navbar() {
     </nav>
   );
 }
-
 

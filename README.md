@@ -1,7 +1,7 @@
 
-## Tiles Gallery
+## tiles-gallery
 
-A modern tile showcase web application where users can explore a curated collection of premium ceramic, porcelain, and stone tiles.
+Tiles Gallery is a modern tile showcase web application where users can explore a curated collection of premium ceramic, porcelain, and stone tiles.
 
 
 ## Technologies Used

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Input } from "@heroui/react";
 import TileCard from "./TileCard";
 
 export default function TilesGrid({ tiles }) {
@@ -12,23 +11,16 @@ export default function TilesGrid({ tiles }) {
 
   return (
     <div>
-      {/* Search Bar */}
       <div className="max-w-xl mx-auto mb-10">
-        <Input
+        <input
           type="text"
           placeholder="Search tiles by title..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          size="lg"
-          radius="none"
-          classNames={{
-            input: "text-stone-800 placeholder:text-stone-400",
-            inputWrapper: "border border-stone-300 bg-white shadow-none hover:border-stone-500",
-          }}
+          className="w-full px-4 py-3 text-stone-800 placeholder:text-stone-400 border border-stone-300 bg-white outline-none hover:border-stone-500 focus:border-stone-800 transition-colors duration-200 text-sm"
         />
       </div>
 
-      {/* No Result */}
       {filteredTiles.length === 0 && (
         <div className="text-center py-20">
           <p className="text-stone-400 text-sm uppercase tracking-widest">
@@ -37,7 +29,6 @@ export default function TilesGrid({ tiles }) {
         </div>
       )}
 
-      {/* Tiles Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredTiles.map((tile) => (
           <TileCard key={tile.id} tile={tile} />

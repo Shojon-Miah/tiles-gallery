@@ -49,11 +49,16 @@ export default function TileDetails({ tile }) {
 
           {/* Title */}
           <h1
-            className="text-3xl md:text-4xl font-bold text-stone-800 mb-4 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-stone-800 mb-2 leading-tight"
             style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
           >
             {tile.title}
           </h1>
+
+          {/* Creator */}
+          <p className="text-sm text-stone-500 mb-6 italic">
+            By <span className="font-medium text-stone-700">{tile.creator || "Anonymous Creator"}</span>
+          </p>
 
           {/* Price */}
           <p className="text-2xl font-semibold text-stone-800 mb-6">

@@ -10,6 +10,7 @@
       "currency": "USD",
       "dimensions": "60x40 cm",
       "material": "Sandstone",
+      "creator": "Lusso Design Studio",
       "tags": ["Grey", "Natural", "Outdoor"],
       "inStock": true
     },
@@ -23,6 +24,7 @@
       "currency": "USD",
       "dimensions": "60x60 cm",
       "material": "Marble",
+      "creator": "Marco Vieri",
       "tags": ["White", "Marble", "Luxury"],
       "inStock": true
     },
@@ -36,6 +38,7 @@
       "currency": "USD",
       "dimensions": "30x30 cm",
       "material": "Terracotta",
+      "creator": "Elena Rossi",
       "tags": ["Terracotta", "Rustic", "Kitchen"],
       "inStock": true
     },
@@ -49,6 +52,7 @@
       "currency": "USD",
       "dimensions": "60x60 cm",
       "material": "Porcelain",
+      "creator": "Minimalist Surfaces",
       "tags": ["Black", "Modern", "Bathroom"],
       "inStock": true
     },
@@ -62,6 +66,7 @@
       "currency": "USD",
       "dimensions": "30x30 cm",
       "material": "Ceramic",
+      "creator": "Artisanal Mosaics",
       "tags": ["White", "Hexagon", "Mosaic"],
       "inStock": true
     },

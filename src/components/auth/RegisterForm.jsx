@@ -1,28 +1,40 @@
 "use client";
 import { useState } from "react";
-import { signIn } from "@/lib/auth-client";
+import { signUp, signIn } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const router = useRouter();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
-    const { error } = await signIn.email({ email, password });
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters");
+      return;
+    }
+
+    setLoading(true);
+    const { error } = await signUp.email({
+      name,
+      email,
+      password,
+      image: photoUrl || undefined,
+    });
 
     if (error) {
-      toast.error(error.message || "Login failed. Please try again.");
+      toast.error(error.message || "Registration failed. Please try again.");
     } else {
-      toast.success("Login successful!");
-      router.push("/");
+      toast.success("Registration successful! Please login.");
+      router.push("/login");
     }
     setLoading(false);
   };
@@ -31,7 +43,7 @@ export default function LoginForm() {
     try {
       await signIn.social({ provider: "google", callbackURL: "/" });
     } catch {
-      toast.error("Google login failed. Please try again.");
+      toast.error("Google sign-up failed. Please try again.");
     }
   };
 
@@ -48,15 +60,30 @@ export default function LoginForm() {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-stone-800 tracking-tight">
-              Welcome Back
+              Create Account
             </h1>
             <p className="text-sm text-stone-400 mt-1">
-              Login to your Tiles Gallery account
+              Join Tiles Gallery today
             </p>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleLogin} className="flex flex-col gap-4">
+          <form onSubmit={handleRegister} className="flex flex-col gap-4">
+
+            {/* Name */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs uppercase tracking-widest text-stone-500 font-medium">
+                Full Name
+              </label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                className="w-full border border-stone-300 px-4 py-2.5 rounded-lg text-sm text-stone-800 placeholder:text-stone-300 focus:outline-none focus:border-stone-600 transition-colors"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
 
             {/* Email */}
             <div className="flex flex-col gap-1.5">
@@ -73,6 +100,20 @@ export default function LoginForm() {
               />
             </div>
 
+            {/* Photo URL */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs uppercase tracking-widest text-stone-500 font-medium">
+                Photo URL
+              </label>
+              <input
+                type="url"
+                placeholder="https://example.com/photo.jpg"
+                className="w-full border border-stone-300 px-4 py-2.5 rounded-lg text-sm text-stone-800 placeholder:text-stone-300 focus:outline-none focus:border-stone-600 transition-colors"
+                value={photoUrl}
+                onChange={(e) => setPhotoUrl(e.target.value)}
+              />
+            </div>
+
             {/* Password */}
             <div className="flex flex-col gap-1.5">
               <label className="text-xs uppercase tracking-widest text-stone-500 font-medium">
@@ -80,21 +121,22 @@ export default function LoginForm() {
               </label>
               <input
                 type="password"
-                placeholder="Enter your password"
+                placeholder="Minimum 8 characters"
                 className="w-full border border-stone-300 px-4 py-2.5 rounded-lg text-sm text-stone-800 placeholder:text-stone-300 focus:outline-none focus:border-stone-600 transition-colors"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={8}
               />
             </div>
 
-            {/* Login Button */}
+            {/* Register Button */}
             <button
               type="submit"
               disabled={loading}
               className="w-full bg-stone-800 text-white py-2.5 rounded-lg text-sm font-semibold uppercase tracking-widest hover:bg-stone-700 transition-colors disabled:opacity-60 mt-2"
             >
-              {loading ? "Logging in..." : "Login"}
+              {loading ? "Creating Account..." : "Register"}
             </button>
           </form>
 
@@ -105,7 +147,7 @@ export default function LoginForm() {
             <div className="flex-1 h-px bg-stone-200" />
           </div>
 
-          {/* Google Login Button */}
+          {/* Google Sign-up Button */}
           <button
             onClick={handleGoogle}
             className="w-full flex items-center justify-center gap-3 border border-stone-300 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-stone-50 hover:border-stone-400 transition-all"
@@ -114,14 +156,14 @@ export default function LoginForm() {
             Continue with Google
           </button>
 
-          {/* Register Link */}
+          {/* Login Link */}
           <p className="text-center mt-6 text-sm text-stone-500">
-            Don&apos;t have an account?{" "}
+            Already have an account?{" "}
             <Link
-              href="/register"
+              href="/login"
               className="text-stone-800 font-semibold hover:underline"
             >
-              Register
+              Login
             </Link>
           </p>
         </div>

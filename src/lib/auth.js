@@ -2,27 +2,25 @@ import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 
-// Lazy singleton — avoids top-level await and reuses the connection across
-// hot-reloads in development (stored on the global object).
-const globalForMongo = globalThis;
+const client = new MongoClient(process.env.MONGODB_URI);
 
-if (!globalForMongo._mongoClient) {
-  globalForMongo._mongoClient = new MongoClient(process.env.MONGODB_URI);
-}
+const connectDB = async () => {
+  try {
+    await client.connect();
+    return client.db("tiles-gallery");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    throw error;
+  }
+};
 
-const client = globalForMongo._mongoClient;
-
-// We do NOT need to call await client.connect() here. The MongoClient will automatically
-// connect to the database when the first operation is performed.
-// This also avoids issues with top-level await in Next.js Route Handlers.
-const db = client.db("tiles-gallery");
+const db = await connectDB();
 
 export const auth = betterAuth({
   database: mongodbAdapter(db),
-  secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
   emailAndPassword: {
     enabled: true,
+    minPasswordLength: 8,
   },
   socialProviders: {
     google: {

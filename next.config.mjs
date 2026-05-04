@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ["mongodb"],
-  },
+  serverExternalPackages: ["mongodb"],
   images: {
     remotePatterns: [
       {
@@ -14,4 +12,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

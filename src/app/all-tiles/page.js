@@ -1,17 +1,21 @@
+import { Suspense } from "react";
 import { getAllTiles } from "@/lib/jsonServer";
 import TilesGrid from "@/components/tiles/TilesGrid";
+import Loader from "@/components/shared/Loader";
 
 export const metadata = {
   title: "All Tiles | Tiles Gallery",
   description: "Browse our complete collection of premium tiles",
 };
 
-export default async function AllTilesPage() {
+async function TilesContent() {
   const tiles = await getAllTiles();
+  return <TilesGrid tiles={tiles} />;
+}
 
+export default function AllTilesPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Page Header */}
       <div className="bg-stone-50 border-b border-stone-200 py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.35em] text-stone-400 mb-3">
@@ -25,12 +29,11 @@ export default async function AllTilesPage() {
           </h1>
         </div>
       </div>
-
-      {/* Tiles Grid with Search */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <TilesGrid tiles={tiles} />
+        <Suspense fallback={<Loader />}>
+          <TilesContent />
+        </Suspense>
       </div>
     </main>
   );
 }
-

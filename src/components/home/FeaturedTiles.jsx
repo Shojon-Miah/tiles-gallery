@@ -2,6 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { getFeaturedTiles } from "@/lib/jsonServer";
 
+import { getFeaturedTiles } from "@/lib/jsonServer";
+import FeaturedTilesClient from "./FeaturedTilesClient";
+
+export default async function FeaturedTiles() {
+  const featuredTiles = await getFeaturedTiles();
+  return <FeaturedTilesClient tiles={featuredTiles} />;
+}
+
 export default async function FeaturedTiles() {
   const featuredTiles = await getFeaturedTiles();
 
